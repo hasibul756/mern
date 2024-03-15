@@ -21,7 +21,7 @@ app.get('/api/data', (req, res)=> {
     },
     {
       id:3,
-      name:'Iroon Man'
+      name:'Iron Man'
     }
   ];
   res.send(data)
