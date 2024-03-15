@@ -1,0 +1,12 @@
+Step 1: create folder
+Step 2: initialize npm package (npm init -y)
+Step 3: create a file eg(index.js)
+Step 4: add scripts in package.json ("start": "node index.js")
+Step 5: install express js
+Step 6: install dot env (npm i dotenv)
+Step 7: create a file .env and create a PORT
+Step 8: copy sample template from express js into index.js
+Step 9: import 'dotenv/config' or require('dotenv').config() in index.js at top {to use es6 import instead of require,
+        add "type": "module", in package.json file after "main" }
+Step 10: set PORT = process.env.PORT || 4000 (using or incase env port is not available to be used.)
+Step 10: start server using npm run start 

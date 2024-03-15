@@ -1,0 +1,4 @@
+Step 1 : install axios package or use fetch
+Steps 2: install cors (see google why)
+Steps 3: setup proxy in vite.config.js
+Step 4 : call axios using useeffect and get data using usestate
