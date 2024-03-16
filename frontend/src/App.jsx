@@ -5,7 +5,7 @@ function App() {
   const[data,setData] = useState([])
 
   useEffect(()=>{
-    axios.get('/api/data')
+    axios.get('/api/user')
     .then((response)=> {
       setData(response.data)
     })
@@ -18,10 +18,8 @@ function App() {
     <>
     <h1>Total Data {data.length}</h1>
     {
-      data.map((data)=> (
-        <div key={data.id}>
-          <p>{data.name}</p>
-        </div>
+      data.map((data,index)=> (
+        <p key={index}>{data.name}: {data.email}</p>
       ))
     }
     </>

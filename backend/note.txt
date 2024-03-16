@@ -10,3 +10,9 @@ Step 9: import 'dotenv/config' or require('dotenv').config() in index.js at top 
         add "type": "module", in package.json file after "main" }
 Step 10: set PORT = process.env.PORT || 4000 (using or incase env port is not available to be used.)
 Step 10: start server using npm run start 
+
+
+// Schema Definition:
+
+1: installl mongoose
+2: read documents
