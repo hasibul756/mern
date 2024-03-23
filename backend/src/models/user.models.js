@@ -9,7 +9,7 @@ const { Schema } = mongoose;
 const userSchema = new Schema(
     {
         // Username field
-        user: {
+        username: {
             type: String,
             required: true, // Username is required
             unique: true, // Username must be unique
@@ -92,7 +92,7 @@ userSchema.methods.generateAccessToken = function () {
         {
             _id: this._id, // User ID
             email: this.email, // User email
-            user: this.user, // Username
+            user: this.username, // Username
             fullname: this.fullName // Full name
         },
         process.env.ACCESS_TOKEN_SECRET, // Secret key for signing the token

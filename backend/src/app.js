@@ -22,5 +22,13 @@ app.use(cookieParser());
 // Middleware to serve static files from the "public" directory
 app.use(express.static("public"));
 
+//Routes
+import userRouter from './routes/user.routes.js';
+
+//Routes Declaration
+app.use("/api/v1/users", userRouter)
+
+
+
 // Export the configured Express application
 export { app };
