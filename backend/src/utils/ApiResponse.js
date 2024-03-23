@@ -12,3 +12,5 @@ class ApiResponse {
         return this.statusCode >= 200 && this.statusCode < 400;
     }
 }
+
+export {ApiResponse}
