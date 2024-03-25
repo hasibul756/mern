@@ -22,7 +22,9 @@ const uploadOnCloudinary = async (localFilePath) => {
         });
 
         // Log success message with the secure URL of the uploaded file
-        console.log("File Uploaded Successfully", response.secure_url);
+        //console.log("File Uploaded Successfully", response.secure_url);
+
+        fs.unlinkSync(localFilePath);
 
         // Return the Cloudinary response object
         return response;
