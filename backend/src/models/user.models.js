@@ -1,7 +1,7 @@
 // Import necessary packages
 import mongoose from "mongoose"; // Mongoose for MongoDB object modeling
 import jwt from "jsonwebtoken"; // JWT for token generation and verification
-import bcrypt from "bcrypt"; // Bcrypt for password hashing
+import bcrypt from "bcryptjs"; // Bcrypt for password hashing
 
 const { Schema } = mongoose;
 
@@ -9,7 +9,7 @@ const { Schema } = mongoose;
 const userSchema = new Schema(
     {
         // Username field
-        user: {
+        username: {
             type: String,
             required: true, // Username is required
             unique: true, // Username must be unique
@@ -23,7 +23,7 @@ const userSchema = new Schema(
             required: true, // Email is required
             unique: true, // Email must be unique
             lowercase: true, // Convert email to lowercase
-            trim: true, // Trim whitespace from email
+            trim: true // Trim whitespace from email
         },
         // Full name field
         fullName: {
@@ -39,7 +39,7 @@ const userSchema = new Schema(
         },
         // Cover image field
         coverImage: {
-            type: String,
+            type: String
         },
         // Watch history field (reference to Video model)
         watchHistory: [{
@@ -50,8 +50,8 @@ const userSchema = new Schema(
         password: {
             type: String,
             required: [true, "Password is required"], // Password is required
-            min: [6, "Min length required"], // Minimum password length
-            max: 20 // Maximum password length
+            min: [6, "Minimum length required"], // Minimum password length
+            max: [20, "Maximum length exceeded"] // Maximum password length
         },
         // Refresh token field
         refreshToken: {
@@ -92,8 +92,8 @@ userSchema.methods.generateAccessToken = function () {
         {
             _id: this._id, // User ID
             email: this.email, // User email
-            user: this.user, // Username
-            fullname: this.fullName // Full name
+            user: this.username, // Username
+            fullName: this.fullName // Full name
         },
         process.env.ACCESS_TOKEN_SECRET, // Secret key for signing the token
         {

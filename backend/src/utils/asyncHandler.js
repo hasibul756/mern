@@ -7,7 +7,7 @@ const asyncHandler = (fn) => async (req, res, next) => {
         // If an error occurs during the execution of `fn`, catch it here
         // Set the HTTP status code to 500 (Internal Server Error) if `code` is not provided
         // Send a JSON response with an error message
-        res.status(code || 500).json({
+        res.status(err.code || 500).json({
             success: false,
             message: err.message
         });
